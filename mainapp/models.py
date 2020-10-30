@@ -21,7 +21,6 @@ def get_product_url(obj, viewname):
     return reverse(viewname, kwargs={'ct-model': ct_model, 'slug': obj.slug})
 
 
-
 class MinResolutionErrorException(Exception):
     pass
 
@@ -147,6 +146,8 @@ class Notebook(Product):
 
     def get_absolute_url(self):
         return get_product_url(self, 'product_detail')
+    # def get_absolute_url(self):
+    #     return reverse('product_detail', kwargs={'ct-model': 'notebook', 'slug': self.slug})
 
 class Smartphone(Product):
     diagonal = models.CharField(max_length=255, verbose_name='Диагональ')
@@ -164,6 +165,9 @@ class Smartphone(Product):
 
     def get_absolute_url(self):
         return get_product_url(self, 'product_detail')
+    # def get_absolute_url(self):
+    #     return reverse('product_detail', kwargs={'ct-model': 'smartphone', 'slug': self.slug})
+
 
     # @property
     # def sd(self):
